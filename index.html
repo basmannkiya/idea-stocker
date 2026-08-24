@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idea Stocker - Your Ideas, Visualized</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-content">
+                <h1 class="logo">🌳 Idea Stocker</h1>
+                <ul class="nav-links">
+                    <li><a href="#" onclick="showTab('home')" class="nav-link active">Home</a></li>
+                    <li><a href="#" onclick="showTab('tracker')" class="nav-link">Tracker</a></li>
+                    <li><a href="#" onclick="showTab('tree')" class="nav-link">Wisdom Tree</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            
+            <!-- Home Tab -->
+            <section id="home" class="tab-content active">
+                <div class="home-container">
+                    <div class="add-idea-section">
+                        <h2>💡 Add Your Idea</h2>
+                        <form id="ideaForm">
+                            <div class="form-group">
+                                <label for="ideaTitle">Idea Title</label>
+                                <input 
+                                    type="text" 
+                                    id="ideaTitle" 
+                                    placeholder="Enter your idea title..." 
+                                    required
+                                >
+                            </div>
+                            <div class="form-group">
+                                <label for="ideaDescription">Description</label>
+                                <textarea 
+                                    id="ideaDescription" 
+                                    placeholder="What is your idea about? Describe it in detail..." 
+                                    rows="5"
+                                    required
+                                ></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="ideaCategory">Category</label>
+                                <select id="ideaCategory" required>
+                                    <option value="">Select a category...</option>
+                                    <option value="Business">Business</option>
+                                    <option value="Technology">Technology</option>
+                                    <option value="Creative">Creative</option>
+                                    <option value="Personal">Personal</option>
+                                    <option value="Education">Education</option>
+                                    <option value="Health">Health</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn-primary">Add Idea</button>
+                        </form>
+                    </div>
+
+                    <div class="ideas-list-section">
+                        <h2>📚 Your Ideas</h2>
+                        <div id="ideasList" class="ideas-list">
+                            <p class="empty-state">No ideas yet. Start adding your brilliant ideas! 🚀</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tracker Tab -->
+            <section id="tracker" class="tab-content">
+                <div class="tracker-container">
+                    <h2>📊 Idea Tracker</h2>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <h3>Total Ideas</h3>
+                            <p class="stat-number" id="totalIdeas">0</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>This Month</h3>
+                            <p class="stat-number" id="monthIdeas">0</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>This Week</h3>
+                            <p class="stat-number" id="weekIdeas">0</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Today</h3>
+                            <p class="stat-number" id="todayIdeas">0</p>
+                        </div>
+                    </div>
+
+                    <div class="chart-container">
+                        <h3>Ideas by Category</h3>
+                        <div id="categoryChart" class="category-chart"></div>
+                    </div>
+
+                    <div class="progress-container">
+                        <h3>Monthly Goal</h3>
+                        <p class="goal-text">You have <span id="goalProgress">0</span>/10 ideas this month</p>
+                        <div class="progress-bar">
+                            <div id="goalBar" class="progress-fill"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Wisdom Tree Tab -->
+            <section id="tree" class="tab-content">
+                <div class="tree-container">
+                    <h2>🌳 Wisdom Tree</h2>
+                    <p class="tree-description">Your ideas are the leaves on this tree. Watch your wisdom grow!</p>
+                    
+                    <svg id="treeSvg" class="tree-svg" viewBox="0 0 1000 700"></svg>
+                    <div id="treeLeaves" class="tree-leaves"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
